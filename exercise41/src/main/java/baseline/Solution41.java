@@ -4,11 +4,7 @@
  */
 //changed my psudecode a bit because i messed up where i need to call scanner and file
 package baseline;
-
-
-//import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Solution41 {
 

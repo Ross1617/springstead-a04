@@ -21,6 +21,8 @@ public class nameSorter {
             names.add(input.nextLine());
         }
         //returns names for testing purposes
+        //close the scanner (I hate sonarLint)
+        input.close();
         return names;
     }
     public ArrayList<String> sortNames(){
@@ -31,14 +33,19 @@ public class nameSorter {
     }
     public ArrayList<String> writeNames(String filename) throws IOException {
         //opens output file
-        FileWriter text = new FileWriter(filename);
-        //takes array list and writes it to a file
-        for(int i =0; i< names.size(); i++){
-            text.write(String.valueOf(names.get(i)));
-            text.write("\n");
+        int numberOfNames = names.size();
+        try(FileWriter text = new FileWriter(filename)){
+            //writes the header
+            text.write("Total number of names " + numberOfNames +"\n" + "---------------------\n");
+            //writes it line by line
+            for(int i =0; i< numberOfNames; i++){
+                //takes array list and writes it to a file
+                text.write(String.valueOf(names.get(i)));
+                text.write("\n");
+            }
+            //closes the file
+            text.close();
         }
-        //closes the file
-        text.close();
         return names;
     }
 
