@@ -5,15 +5,17 @@ package baseline;
  */
 
 
-public class Solutions43 {
-    public static void main(String[] args) {
-        //create a new instance of fileMaker
+import java.io.IOException;
 
+public class Solutions43 {
+    public static void main(String[] args) throws IOException {
+        //create a new instance of fileMaker
+        fileMaker fM = new fileMaker();
         //calls the function that asks the users all the questions
         // getUserInformation
-
+        fM.getUserInformation();
         //call the website function creator
-
+        fM.createFiles();
 
     }
 }
