@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution45{
+	+main()
+	'wordFinder wF = new wordFinder()
+	'ns.readStory("input.txt")
+	'ns.writeStory("output.txt")
+}
+
+class wordFinder {
+	-ArrayList<Strings> words;
+	+readNames(String fileName)
+	+writeNames(String fileName)
+}
+
+Solution45 -- wordFinder
+
+@enduml
