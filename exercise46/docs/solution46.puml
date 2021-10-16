@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Solution46{
+	+main()
+	'wordFrequencyFinder wF = new wordFrequencyFinder()
+	'wF.readInput("input.txt")
+	'wF.findFrequency
+	'wF.displaysOutput
+}
+
+class wordFrequencyFinder {
+	-ArrayList<Strings> words;
+	-int badger = 0;
+	-int mushroom = 0;
+    -int snake = 0;
+	+readNames(String fileName)
+	+findFrequency()
+	+displaysOutput()
+}
+
+Solution46 -- wordFrequencyFinder
+
+@enduml
