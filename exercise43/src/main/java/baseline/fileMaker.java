@@ -9,33 +9,46 @@ public class fileMaker {
     // author
     String authorName;
     //javaScript
-    char javaScript;
+    String javaScript;
     //CSS
-    char CSS;
-
-    public void getUserInformation(){
-
-        //prompt the user for site name
-        System.out.println("Site name : ");
+    String  CSS;
+    public String readInput(String prompt){
+        //prompts the user for a string
+        System.out.println(prompt);
+        //returns the user next line
+        return in.nextLine();
+    }
+    public String setSiteName(String input) {
         //sets the site name to the instance variable
-        siteName = in.nextLine();
-        //prompt the user for the author
-        System.out.println("Author name : ");
+        siteName = input;
+        //returns site name
+        return siteName;
+
+    }
+    public  String setAuthorName(String input) {
         //sets the author name to the instance variable
-        authorName = in.nextLine();
-        // prompt the user for if he wants JavaScript files
-        System.out.println("Do you want a folder for JavaScript? ");
-        //set the instance variable
-        javaScript = in.next().charAt(0);
-        //prompt the user if he wants a CSS file
-        System.out.println("Do you want a folder for CSS? ");
-        //set the instance variable
-        CSS = in.next().charAt(0);
+        authorName = input;
+        //return so a test case can be made
+        return  authorName;
     }
 
-    public void createFiles() throws IOException {
+    public String setJavaScript(String input) {
+        //set the instance variable
+        javaScript = input;
+        //return so a test case can be made
+        return javaScript;
+    }
+    public String setCSS(String input){
+        //set the instance variable
+        CSS = input;
+        //return so a test case can be made
+        return CSS;
+    }
+
+    public int createFiles() throws IOException {
         //get the current path of the user
         //assign it to a variable
+        int counter = 0;
         String created = "Created ";
         String path = System.getProperty("user.dir");
         //add the site name to the variable
@@ -45,6 +58,7 @@ public class fileMaker {
         boolean websiteCreated = website.mkdir();
         if(websiteCreated){
             System.out.println(created + path);
+            counter++;
         }
         //write to the file the html needed
         try (FileWriter websiteSkeleton = new FileWriter(new File(path + "\\index.html"))){
@@ -53,45 +67,45 @@ public class fileMaker {
             websiteSkeleton.write("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n");
             //making meta author
             websiteSkeleton.write("\t<meta author=\"" + authorName + "\">\n");
-            //making title 
+            //making title
             websiteSkeleton.write("\t<title>" + siteName + "</title>\n");
             websiteSkeleton.write("</head>\n<body>\n\n</body>\n</html>");
-            websiteSkeleton.close();
             //print the  location
             System.out.println(created + path + "\\index.html");
-
+            counter++;
             //check to see if javaScript is equal to y
-            if (javaScript == 'y') {
+            if (javaScript.equals("y")) {
                 //if yes create a new folder for it
                 File javaScriptFolder = new File(path + "\\js");
                 //print where it is located
                 boolean javaScriptCreated = javaScriptFolder.mkdir();
                 if(javaScriptCreated){
                     System.out.println(created + javaScriptFolder + "\\");
+                    counter++;
                 }
 
-            }
-            if (CSS == 'y') {
-                //if yes create a new folder for it
-                File CSSFolder = new File(path + "\\css");
-                //print where it is located
-                boolean CSSCreated = CSSFolder.mkdir();
-                if ( CSSCreated){
-                    System.out.println(created + CSSFolder + "\\");
-                }
             }
             //check to see if CSS is y
-            //if yes create a new folder for it
-            //print where it is located
-            websiteSkeleton.close();
+            if (CSS.equals("y")) {
+                //if yes create a new folder for it
+                File CSSFolder = new File(path + "\\css");
+                //if yes create a new folder for it
+                boolean CSSCreated = CSSFolder.mkdir();
+                if ( CSSCreated){
 
+                    //print where it is located
+                    System.out.println(created + CSSFolder + "\\");
+                    counter++;
+                }
+            }
         }
         catch(IOException e)
         {
             System.out.println("Something did not work");
         }
-
-
+        return counter;
     }
+
+
 
 }

@@ -13,7 +13,22 @@ public class Solutions43 {
         fileMaker fM = new fileMaker();
         //calls the function that asks the users all the questions
         // getUserInformation
-        fM.getUserInformation();
+        //prompts user
+        String site = fM.readInput("Site name: ");
+        //sets name
+        fM.setSiteName(site);
+        //prompts user
+        String author = fM.readInput("Author: ");
+        //sets name
+        fM.setAuthorName(author);
+        //prompts user
+        String javaScript = fM.readInput("Do you want a folder for JavaScript? ");
+        //sets name
+        fM.setJavaScript(javaScript);
+        //prompts user
+        String CSS = fM.readInput("Do you want a folder for CSS? ");
+        //sets name
+        fM.setCSS(CSS);
         //call the website function creator
         fM.createFiles();
 

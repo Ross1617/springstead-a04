@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution43{
+	+main()
+	'fileMaker fM = new fileMaker()
+	'fM.readInput();
+	'fM.setSiteName();
+	'fM.readInput();
+    'fM.setAuthorName():
+    'fM.readInput();
+   	'fM.setJavaScript();
+    'fM.readInput();
+    'fM.setCSS();
+	'fM.createFiles()
+}
+
+
+class fileMaker {
+	-String siteName;
+	-String authorName;
+	-String javaScript;
+	-String CSS;
+	+readInput(String input)
+	+setSiteName(String site)
+	+setAuthorName(String Author)
+	+setJavaScripts(String javaScript)
+	+setCSS(CSS)
+	+createFiles()
+
+}
+
+Solution43 -- fileMaker
+@enduml
