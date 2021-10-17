@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution44{
+	+main()
+	' holder  = 0
+	'productSearch pS = new productSearch()
+	'while loop
+	'pS.readNames("What is the products name? ")
+	'holder = 'pS.search()
+}
+
+
+class productSearch {
+	-String searchTerm;
+	+readInput(String prompt)
+	+search()
+}
+
+Solution44 -- productSearch
+@enduml
